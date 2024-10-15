@@ -14,7 +14,7 @@
 .type nameStr,%gnu_unique_object
     
 /*** STUDENTS: Change the next line to your name!  **/
-nameStr: .asciz "Inigo Montoya"  
+nameStr: .asciz "Jackson Adams"  
 
 .align   /* realign so that next mem allocations are on word boundaries */
  
@@ -81,6 +81,31 @@ asmFunc:
     
     /*** STUDENTS: Place your code BELOW this line!!! **************/
 
+    /* input from c code*/
+    /* r0: dividen/numerator*/
+    /* r1: divisor/denominator */
+    
+    /* compair r0 and r1, check if r0 < r1 */
+    /* cmp r0, r1 means (r0 - r1) */
+    check:
+    cmp r0, r1
+    /* when r1(denominator) > r0(numorator), true */
+    bgt greater
+    /* when r1(denominator) > r0(numorator), false */
+    blt less
+    
+    
+    greater:
+    sub r0, r1
+    b check
+    
+    less:
+    
+    /* output from code */
+    /* Make sure I am returning the address of quotient */
+    ldr r0, =quotient	/* r0: quotient  address */
+    
+    
     
     /*** STUDENTS: Place your code ABOVE this line!!! **************/
 
